@@ -1,7 +1,5 @@
 puts "Укажите длины трех сторон треугольника через запятую"
-input = gets
-lengths= input.split(",").map(&:to_i)
-sum = 0
+lengths = gets.split(",").map(&:to_i)
 l_max = lengths.max
 l_min = lengths.min
 l_med = lengths.inject(:+) - lengths.max - lengths.min
