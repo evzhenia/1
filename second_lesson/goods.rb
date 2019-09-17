@@ -1,19 +1,17 @@
 puts "введите название товара, цену за единицу товара, количество товара"
-list = []
+# list = []
+goods_list = {}
 loop do
   input = gets.split.to_a
+  name, price, quantity = input
   break if input == ["stop"]
-    list = list.push(input)
+  goods_list[name] = { price: price.to_f, quantity: quantity.to_f } 
 end
-
-list_hash = {}
-price_for_all = 0
-list.each do |i|
-  price_qnt = {i[1].to_f => i[2].to_f}
-  list_hash = {i[0] => price_qnt}.merge(list_hash)
-  price_for_good = i[1].to_f * i[2].to_f
-  price_for_all = price_for_all + price_for_good
-  puts "Итоговая цена за #{i[0]} составляет #{price_for_good} "
+puts goods_list
+total_cost = 0
+goods_list.each do |name, price_quantity|
+  cost = price_quantity[:price] * price_quantity[:quantity]
+  puts "Цена за #{name} составляет #{cost}"
+  total_cost = total_cost + cost
+  puts "Итоговая сумма зв все покупки составляет #{total_cost}"
 end
-puts "Итоговая цена за все покупки составляет #{price_for_all}"
-puts list_hash

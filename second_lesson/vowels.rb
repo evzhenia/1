@@ -1,11 +1,8 @@
-arr = ('A'..'Z').to_a
-arr_i = (1..arr.size+1)
-alph = Hash[arr.zip(arr_i)] 
-vowels = ['A','E','I','O','U']
-alph.each do |key, value|
-  unless vowels.include? key 
-   alph.delete(key) 
-  end
-end
-puts alph
+alph = ('A'..'Z').to_a
+vowels = %w[A E I O U]
+alph_with_numbers = {}
 
+alph.each.with_index(1) do |letter, index| 
+  alph_with_numbers[letter] = index if vowels.include? letter 
+end
+puts alph_with_numbers
