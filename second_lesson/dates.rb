@@ -2,11 +2,10 @@ puts "Введите число, месяц, год через точку"
 date = gets.split(".").map(&:to_i)
 days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-month= date[1]
-month_count = days.take( month - 1 )
-day_count_month = month_count.reduce(:+)  
-
 day, month, year = date
+
+month_count = days.take(month - 1)
+day_count_month = month_count.reduce(:+)  
 
 divided_by_4 = (year % 4) == 0
 divided_by_100 = (year % 100) == 0
