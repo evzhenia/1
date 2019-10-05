@@ -1,12 +1,12 @@
 class Station 
-  attr_reader :name, :trains
+  attr_reader :name
 
   def initialize(name)
     @name = name
     @trains = []
   end
 
-  def arrived_trains(train)
+  def arrive_train(train)
     @trains << train
   end
 
@@ -15,12 +15,10 @@ class Station
   end
 
   def depart_train(train)
-    @trains = @trains.delete(train)
+    @trains.delete(train)
   end
 
   def show_trains_by_type(type)
-    trains.each { |train| return train if train.type == type  } 
+    @trains.each { |train| return train if train.type == type  } 
   end
 end
-
-  
